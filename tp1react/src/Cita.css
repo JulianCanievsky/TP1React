@@ -1,0 +1,29 @@
+.cita {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid #e1e1e1;
+  color: black;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;  
+}
+
+.cita p {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.cita p span {
+  font-weight: normal;
+}
+
+.btn-eliminar {
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  
+  box-sizing: border-box; }
