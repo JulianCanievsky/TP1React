@@ -18,8 +18,8 @@ function App() {
           <Formulario />
         </div>
         <div className="one-half column">
-          <Listado citas={citas} />
-        </div>
+<Listado citas={citas} />    
+    </div>
       </div>
     </div>
   );
