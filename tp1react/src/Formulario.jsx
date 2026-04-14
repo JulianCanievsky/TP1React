@@ -1,28 +1,76 @@
+import { useState } from "react";
 import "./Formulario.css";
 
-function Formulario() {
+function Formulario({ setCitas }) {
+  const [mascota, setMascota] = useState("");
+  const [dueno, setDueno] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [hora, setHora] = useState("");
+  const [sintomas, setSintomas] = useState("");
+
+  function agregarCita(e) {
+    e.preventDefault();
+
+    const nuevaCita = {
+      id: Date.now(),
+      mascota,
+      dueño: dueno,
+      fecha,
+      hora,
+      sintomas,
+    };
+
+    setCitas((prev) => [...prev, nuevaCita]);
+
+    setMascota("");
+    setDueno("");
+    setFecha("");
+    setHora("");
+    setSintomas("");
+  }
+
   return (
-    <>
+    <div className="formulario">
       <h2>Crear mi Cita</h2>
-      <form>
+
+      <form onSubmit={agregarCita}>
         <label>Nombre Mascota</label>
-        <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota" />
+        <input
+          type="text"
+          value={mascota}
+          onChange={(e) => setMascota(e.target.value)}
+        />
 
         <label>Nombre Dueño</label>
-        <input type="text" name="propietario" className="u-full-width" placeholder="Nombre dueño de la mascota" />
+        <input
+          type="text"
+          value={dueno}
+          onChange={(e) => setDueno(e.target.value)}
+        />
 
         <label>Fecha</label>
-        <input type="date" name="fecha" className="u-full-width" />
+        <input
+          type="date"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
+        />
 
-        <label>hora</label>
-        <input type="time" name="hora" className="u-full-width" />
+        <label>Hora</label>
+        <input
+          type="time"
+          value={hora}
+          onChange={(e) => setHora(e.target.value)}
+        />
 
-        <label>Sintomas</label>
-        <textarea name="sintomas" className="u-full-width"></textarea>
+        <label>Síntomas</label>
+        <textarea
+          value={sintomas}
+          onChange={(e) => setSintomas(e.target.value)}
+        ></textarea>
 
-        <button type="submit" className="u-full-width button-primary">Agregar Cita</button>
+        <button type="submit">Agregar Cita</button>
       </form>
-    </>
+    </div>
   );
 }
 
